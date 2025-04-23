@@ -8,7 +8,7 @@ import { Story } from '../models/story.model';
   providedIn: 'root'
 })
 export class StoryService {
-  private apiUrl = 'https://localhost:7273/api/';
+  private apiUrl = 'https://newsappapi-ara6cma2b8crddgy.centralindia-01.azurewebsites.net/api/';
 
   constructor(private http: HttpClient) {}
 

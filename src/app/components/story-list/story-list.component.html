@@ -1,0 +1,41 @@
+<!-- Search + Content Wrapper -->
+<div *ngIf="!loading" class="content-wrapper">
+
+    <!-- Search Input -->
+    <div class="search-container">
+      <input
+        type="text"
+        [(ngModel)]="searchTerm"
+        placeholder="🔍 Search stories..."
+        class="search-input"
+      />
+      <button (click)="onSearch()" class="search-button">Search</button>
+      <button *ngIf="searchTerm" (click)="clearSearch()" class="clear-button">Clear</button>
+    </div>
+  
+    <!-- Scrollable Story List -->
+    <div class="story-scrollable">
+      <div *ngFor="let story of stories" class="story-item">
+        <h3 class="story-title">{{ story.title }}</h3>
+        <a *ngIf="story.url" [href]="story.url" target="_blank" class="story-link">Read more</a>
+      </div>
+    </div>
+  
+    <!-- Sticky Pagination -->
+    <div class="pagination sticky-pagination">
+      <button (click)="onPageChange(page - 1)" [disabled]="page === 1" class="pagination-btn prev-btn">
+        <span>&#8592; Previous</span>
+      </button>
+      <span class="page-info">Page {{ page }} of {{ totalCount / pageSize | number: '1.0-0' }}</span>
+      <button (click)="onPageChange(page + 1)" [disabled]="page * pageSize >= totalCount" class="pagination-btn next-btn">
+        <span>Next &#8594;</span>
+      </button>
+    </div>
+  
+  </div>
+  
+  <!-- Loading Spinner -->
+  <div *ngIf="loading" class="loading-spinner">
+    <span>Loading...</span>
+  </div>
+  

@@ -8,7 +8,7 @@ import { Story } from '../models/story.model';
   providedIn: 'root'
 })
 export class StoryService {
-  private apiUrl = 'https://newsappapi-ara6cma2b8crddgy.centralindia-01.azurewebsites.net/api/';
+  private apiUrl = 'https://localhost:7273/api/';
 
   constructor(private http: HttpClient) {}
 
@@ -20,8 +20,5 @@ export class StoryService {
     };
   
     return this.http.post<PagedResult<Story>>(this.apiUrl + 'news/getNewStories', body);
-  }
-  
-  
-  
+  } 
 }

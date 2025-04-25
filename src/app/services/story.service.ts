@@ -9,7 +9,7 @@ import { Story } from '../models/story.model';
 })
 export class StoryService {
   private apiUrl = 'https://newsappapi-ara6cma2b8crddgy.centralindia-01.azurewebsites.net/api/';
-
+  //private apiUrl = 'https://localhost:7273/api/';  // local API URL
   constructor(private http: HttpClient) {}
 
   getStories(page: number, pageSize: number, searchTerm: string): Observable<PagedResult<Story>> {

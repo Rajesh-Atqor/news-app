@@ -47,7 +47,7 @@ describe('StoryService', () => {
     });
 
     // Expecting a POST request to be made with the correct API URL
-    const req = httpMock.expectOne('https://localhost:7273/api/news/getNewStories');
+    const req = httpMock.expectOne('https://newsappapi-ara6cma2b8crddgy.centralindia-01.azurewebsites.net/api/news/getNewStories');
     expect(req.request.method).toBe('POST');
     expect(req.request.body).toEqual({
       pageNumber: page,
@@ -72,7 +72,7 @@ describe('StoryService', () => {
       }
     });
 
-    const req = httpMock.expectOne('https://localhost:7273/api/news/getNewStories');
+    const req = httpMock.expectOne('https://newsappapi-ara6cma2b8crddgy.centralindia-01.azurewebsites.net/api/news/getNewStories');
     req.flush('Error occurred', { status: 500, statusText: 'Internal Server Error' });
   });
 });
